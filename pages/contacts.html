@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Семестровая работа</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+
+<body>
+    <div class="page-container">
+        <header class="header">
+            <h1>Что-то для связи</h1>
+        </header>
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a class="nav__link" href="../index.html">Главная</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="news.html">Новости</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="practices.html">Практики</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="goods.html">Товары</a>
+                </li>
+                <li class="nav__item nav__item--active">
+                    <a class="nav__link" href="contacts.html">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+        <main class="content">
+            <section class="contact-container">
+                <h2 class="title">Контакты</h2>
+
+                <article class="contact-adress">
+                    <h2>Электронная почта</h2>
+                    <p>Адрес электронной почты: 8dragonblade8@gmail.com</p>
+                </article>
+
+                <article class="contact-adress">
+                    <h2>Физический адрес</h2>
+                    <p>Адрес: Мегабашня H10, квартал Маленький Китай, район Уотсон, Найт-Сити</p>
+                </article>
+                <article class="contact-item">
+                    <h2>Телефон</h2>
+                    <p>+7 (903) 282-84-24</p>
+                </article>
+                <article class="contact-item">
+                    <h2>Время работы</h2>
+                    <p>Пн-Вс: 22:00-22:10</p>
+                </article>
+                <button class="contact-button" onclick="contactModal.showModal()">Позвоните мне</button>
+            </section>
+        </main>
+        <footer class="footer">
+            <p>Подвал бездонной ямы</p>
+        </footer>
+        <dialog id="contactModal">
+            <div class="modal-header">
+                <h2>Форма возвратной связи</h2>
+            </div>
+
+            <div class="modal-content">
+                <form id="feedbackForm" method="dialog">
+                    <div class="form-group">
+                        <label for="name">Имя <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" required placeholder="Введите ваше имя">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Телефон <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" required placeholder="+7 (XXX) XXX-XX-XX">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Электронная почта <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="example@mail.ru">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Категория обращения<span class="required">*</span></label>
+                        <select id="category" name="category" required>
+                            <option value="">Выберите категорию</option>
+                            <option value="technical">Техническая поддержка</option>
+                            <option value="commercial">Коммерческое предложение</option>
+                            <option value="cooperation">Сотрудничество</option>
+                            <option value="complaint">Жалоба</option>
+                            <option value="suggestion">Предложение</option>
+                            <option value="other">Другое</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Текст обращения <span class="required">*</span></label>
+                        <textarea id="message" name="message" required
+                            placeholder="Опишите вашу проблемку или вопросик..."></textarea>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button type="submit" class="btn btn-secondary" onclick="contactModal.close()">Отмена</button>
+                        <!-- Кнопка отправки с обработкой через JavaScript -->
+                        <button type="button" class="btn btn-primary" onclick="submitForm()">Отправить</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+
+        <script>
+            // Функция для отправки формы
+            function submitForm() {
+                const form = document.getElementById('feedbackForm');
+                const formData = new FormData(form);
+
+                // Простая валидация
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+
+                // Собираем данные формы
+                const data = {
+                    name: formData.get('name'),
+                    phone: formData.get('phone'),
+                    email: formData.get('email'),
+                    category: formData.get('category'),
+                    message: formData.get('message')
+                };
+
+                // В реальном приложении здесь был бы AJAX-запрос
+                console.log('Данные формы:', data);
+
+                // Показываем уведомление об успешной отправке
+                alert('Спасибо! Ваше обращение отправлено. Мы свяжемся с вами в ближайшее время.');
+
+                // Закрываем модальное окно
+                contactModal.close();
+
+                // Очищаем форму
+                form.reset();
+            }
+
+            // Закрытие модального окна по клику на фон
+            document.getElementById('contactModal').addEventListener('click', function (event) {
+                if (event.target === this) {
+                    this.close();
+                }
+            });
+
+            // Обработка отправки формы через Enter (предотвращаем стандартное поведение)
+            document.getElementById('feedbackForm').addEventListener('keypress', function (event) {
+                if (event.key === 'Enter' && event.target.type !== 'textarea') {
+                    event.preventDefault();
+                }
+            });
+        </script>
+    </div>
+</body>
+
+</html>
