@@ -1,1 +1,1 @@
-сайт: https://ritualderverurteilung.github.io/Practice_work
+сайт:  https://ritualderverurteilung.github.io/Verlung_Studio/
