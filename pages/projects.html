@@ -3,10 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Главная - Портфолио</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/styles/styles.css">
 </head>
 
 <body class="bg-light">
@@ -18,7 +19,8 @@
                     <div class="col">
                         <img src="../images/icons/Verlung_Studio_icon.svg" alt="Фото студента"
                             class="img-fluid rounded-circle"
-                            style="width: 150px; height: 150px; object-fit: cover; background-color: white;">
+                            style="width: 150px; height: 150px; object-fit: cover; background-color: white;"
+                            fetchpriority="high">
                         <h1 class="h3 mb-1">Расин Verlung Studio</h1>
                     </div>
                 </div>
@@ -26,9 +28,10 @@
         </header>
 
         <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Основная навигация">
             <div class="container">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-label="Развернуть меню навигации">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -39,7 +42,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="projects.html">
+                            <a class="nav-link active" href="projects.html" aria-current="page">
                                 <i class="bi bi-code-slash me-1"></i>Проекты
                             </a>
                         </li>
@@ -59,7 +62,7 @@
         </nav>
 
         <!-- Main Content -->
-        <main class="container my-4 min-vh-100">
+        <main class="container my-4">
 
             <!-- Filter Section -->
             <section class="mb-5">
@@ -67,17 +70,16 @@
                     <div class="container-fluid">
                         <a class="navbar-brand text-white" href="#">Мои проекты</a>
                         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off"
-                                checked>
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" checked>
                             <label class="btn btn-primary" for="btnradio1">Все</label>
 
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2">
                             <label class="btn btn-primary" for="btnradio2">HTML</label>
 
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio3">
                             <label class="btn btn-primary" for="btnradio3">JS</label>
 
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio4">
                             <label class="btn btn-primary" for="btnradio4">React</label>
                         </div>
                     </div>
@@ -86,76 +88,78 @@
 
             <!-- Projects Section -->
             <section class="mb-5">
-                <div class="container">
-                    <div class="card-body">
-                        <div class="row g-4">
-                            <div class="col-md-6">
-                                <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalProject1">
-                                    <img src="../images/project1.jpg" class="card-img-top" alt="Личное осуждение"
-                                        style="height: 300px; object-fit: cover;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Личное осуждение</h5>
-                                        <p class="card-text small text-muted">
-                                            Осуждение с примесью субъективщины и несдержанной агрессии.
-                                        </p>
-                                        <div class="mb-2">
-                                            <span class="badge bg-primary">Condemnation</span>
-                                            <span class="badge bg-primary">Aggression</span>
-                                            <span class="badge bg-primary">Disappointment</span>
-                                        </div>
-                                    </div>
+                <div class="projects-grid">
+                    <div class="md-6">
+                        <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalProject1">
+                            <picture>
+                                <img srcset="../images/project1.webp, ../images/project1.png" class="card-img-top"
+                                    style="height: 300px; object-fit: cover;" alt="">
+                            </picture>
+                            <div class="card-body">
+                                <h5 class="card-title">Личное осуждение</h5>
+                                <p class="card-text small text-muted">
+                                    Осуждение с примесью субъективщины и несдержанной агрессии.
+                                </p>
+                                <div class="mb-2">
+                                    <span class="badge bg-primary">Condemnation</span>
+                                    <span class="badge bg-primary">Aggression</span>
+                                    <span class="badge bg-primary">Disappointment</span>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalProject2">
-                                    <img src="../images/project2.png" class="card-img-top" alt="Интернет-бан"
-                                        style="height: 300px; object-fit: cover;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Интернет-бан</h5>
-                                        <p class="card-text small text-muted">
-                                            Самостоятельный бан на сервере без возможности саморазблокировки без
-                                            главного админа.
-                                        </p>
-                                        <div class="mb-2">
-                                            <span class="badge bg-success">Minecraft</span>
-                                            <span class="badge bg-success">Sadness</span>
-                                        </div>
-                                    </div>
+                        </div>
+                    </div>
+                    <div class="md-6">
+                        <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalProject2">
+                            <picture>
+                                <img srcset="../images/project2.webp, ../images/project2.png" class="card-img-top"
+                                    style="height: 300px; object-fit: cover;" alt="">
+                            </picture>
+                            <div class="card-body">
+                                <h5 class="card-title">Интернет-бан</h5>
+                                <p class="card-text small text-muted">
+                                    Самостоятельный бан на сервере без возможности саморазблокировки без
+                                    главного админа.
+                                </p>
+                                <div class="mb-2">
+                                    <span class="badge bg-success">Minecraft</span>
+                                    <span class="badge bg-success">Ban</span>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalProject3">
-                                    <img src="../images/project3.png" class="card-img-top"
-                                        alt="Perfection isn't an ultimate goal. It is a wonderful and eternal rival."
-                                        style="height: 300px; object-fit: cover;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Обзор игры Slave Zero X</h5>
-                                        <p class="card-text small text-muted">
-                                            Сделал статью с обзором на малоизвестную игру.
-                                        </p>
-                                        <div class="mb-2">
-                                            <span class="badge bg-dark">PC</span>
-                                            <span class="badge bg-dark">Steam</span>
-                                        </div>
-                                    </div>
+                        </div>
+                    </div>
+                    <div class="md-6">
+                        <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalProject3">
+                            <picture>
+                                <img srcset="../images/project3.webp, ../images/project3.png" class="card-img-top"
+                                    style="height: 300px; object-fit: cover;" alt="">
+                            </picture>
+                            <div class="card-body">
+                                <h5 class="card-title">Обзор игры Slave Zero X</h5>
+                                <p class="card-text small text-muted">
+                                    Сделал статью с обзором на малоизвестную игру.
+                                </p>
+                                <div class="mb-2">
+                                    <span class="badge bg-dark">PC</span>
+                                    <span class="badge bg-dark">Steam</span>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalProject4">
-                                    <img src="../images/project4.png" class="card-img-top"
-                                        alt="Perfection isn't an ultimate goal. It is a wonderful and eternal rival."
-                                        style="height: 300px; object-fit: cover;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Приложение «Планировщик Меню»</h5>
-                                        <p class="card-text small text-muted">
-                                            Сделал приложение на Qt в качестве курсовой работы. Хорошее, рабочее,
-                                            советую.
-                                        </p>
-                                        <div class="mb-2">
-                                            <span class="badge bg-info">C++</span>
-                                            <span class="badge bg-info">Qt</span>
-                                        </div>
-                                    </div>
+                        </div>
+                    </div>
+                    <div class="md-6">
+                        <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalProject4">
+                            <picture>
+                                <img srcset="../images/project4.webp, ../images/project4.png" class="card-img-top"
+                                    style="height: 300px; object-fit: contain;" alt="">
+                            </picture>
+                            <div class="card-body">
+                                <h5 class="card-title">Приложение «Планировщик Меню»</h5>
+                                <p class="card-text small text-muted">
+                                    Сделал приложение на Qt в качестве курсовой работы. Хорошее, рабочее,
+                                    советую.
+                                </p>
+                                <div class="mb-2">
+                                    <span class="badge bg-secondary">C++</span>
+                                    <span class="badge bg-secondary">Qt</span>
                                 </div>
                             </div>
                         </div>
@@ -164,7 +168,7 @@
             </section>
         </main>
         <!-- Footer -->
-        <footer class="bg-dark text-white py-4 mt-5">
+        <footer class="bg-dark text-white py-4 mt-0">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6">
@@ -179,15 +183,18 @@
         </footer>
     </div>
     <!-- Project 1 Modal-->
-    <div class="modal fade" id="modalProject1" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="modalProject1" tabindex="-1" aria-hidden="true" role="dialog" aria-modal="true"
+        aria-labelledby="condemnation">
         <div class="modal-dialog modal-lg  modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Проект «Личное осуждение»</h4>
+                    <h4 class="modal-title" id="condemnation">Проект «Личное осуждение»</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <img class="ratio ratio-21x9 p-2" src="../images/project1.jpg" alt="">
+                    <picture>
+                        <img srcset="../images/project1.webp, ../images/project1.png" class="img-fluid p-2" alt="">
+                    </picture>
                     <p class="fs-5">
                         Осуждение бесплатно без смс и регистрации.
                     </p>
@@ -200,11 +207,12 @@
         </div>
     </div>
     <!-- Project 2 Modal-->
-    <div class="modal fade" id="modalProject2" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="modalProject2" tabindex="-1" aria-hidden="true" role="dialog" aria-modal="true"
+        aria-labelledby="internet-ban">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Проект «Интернет-бан»</h4>
+                    <h4 class="modal-title" id="internet-ban">Проект «Интернет-бан»</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
@@ -213,7 +221,9 @@
                         оказалось, что после тестирования сборки у меня не забрали админские права, что выяснилось после
                         того, как я прописал команду бана самого себя.
                     </p>
-                    <img class="ratio ratio-16x9 p-2" src="../images/project2.png" alt="">
+                    <picture>
+                        <img srcset="../images/project2.webp, ../images/project2.png" class="img-fluid p-2" alt="">
+                    </picture>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
@@ -223,16 +233,18 @@
         </div>
     </div>
     <!-- Project 3 Modal-->
-    <div class="modal fade" id="modalProject3" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="modalProject3" tabindex="-1" aria-hidden="true" role="dialog" aria-modal="true"
+        aria-labelledby="review">
         <div class="modal-dialog modal-lg  modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Обзор игры Slave Zero X</h4>
+                    <h4 class="modal-title" id="review">Обзор игры Slave Zero X</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <img class="ratio ratio-16x9 p-2" src="../images/project3.png"
-                        alt="Perfection isn't an ultimate goal. It is a wonderful and eternal rival.">
+                    <picture>
+                        <img srcset="../images/project3.webp, ../images/project3.png" class="img-fluid p-2" alt="">
+                    </picture>
                     <p class="fs-5">
                         После прохождения игры я был очень воодушевлён на написание статьи по всей небольшой франшизе
                         Slave Zero.
@@ -248,16 +260,19 @@
         </div>
     </div>
     <!-- Project 4 Modal-->
-    <div class="modal fade" id="modalProject4" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="modalProject4" tabindex="-1" aria-hidden="true" role="dialog" aria-modal="true"
+        aria-labelledby="menu-app">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Приложение «Планировщик меню»</h4>
+                    <h4 class="modal-title" id="menu-app">Приложение «Планировщик меню»</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <img class="ratio ratio-16x9 p-2" src="../images/project4.png"
-                        alt="Поясняющее изображение основного меню приложения">
+                    <picture>
+                        <img srcset="../images/project4.webp, ../images/project4.png" class="img-fluid p-2"
+                            alt="Поясняющее изображение основного меню приложения">
+                    </picture>
                     <p class="fs-5">
                         В качетсве курсового проекта была проделана работа по созданию приложения, способного
                         просматривать, создавать и редактировать текстовые файлы, хранящие рецепты и меню.
